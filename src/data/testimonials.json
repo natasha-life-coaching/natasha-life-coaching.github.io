@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Debbie V",
+    "location": "California",
+    "initials": "DV",
+    "image": null,
+    "quote": "Sessions with Natasha are one of the highlights of my week. She's a pleasure to talk to, and often has simple but excellent suggestions on how to make life a little easier. She listens closely and often quotes me back to myself when we are working through an issue. She will often pick up and follow up on small comments I make to see if there is a nugget of insight there. Knowing that she is going to want to hear about my progress to my personal goals helps motivate me to achieve them.",
+    "highlight": "Sessions with Natasha are the highlight of my week"
+  },
+  {
+    "id": 2,
+    "name": "Randi C",
+    "location": "California",
+    "initials": "RC",
+    "image": null,
+    "quote": "Natasha is incredibly connected when she's working with you. She has emotional intelligence beyond her years. When I was working with her she always made me feel comfortable and safe so that I could explore many different avenues. She's also kind and warm and funny and we laughed a lot during our sessions. I highly recommend working with Natasha if you need to work through something - she will surely get you there and do it with a smile.",
+    "highlight": "She has emotional intelligence beyond her years"
+  },
+  {
+    "id": 3,
+    "name": "Iris T",
+    "location": "Vienna",
+    "initials": "IT",
+    "image": null,
+    "quote": "Natasha knows exactly which questions to ask. She can synthesize our conversations and turn my busy thoughts into concrete suggestions and she can always steer the session into a positive direction. Coaching sessions with Natasha help me understand aspects of my life in more depth, so that my life can continue on a productive and fulfilling route.",
+    "highlight": "Natasha knows exactly which questions to ask"
+  }
+]

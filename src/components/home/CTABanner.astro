@@ -1,0 +1,31 @@
+---
+import Button from '../common/Button.astro';
+import CalEmbed from '../common/CalEmbed.astro';
+---
+
+<section class="py-20 bg-charcoal relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-64 h-64 bg-primary-500 rounded-full blur-3xl opacity-10"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-400 rounded-full blur-3xl opacity-10"></div>
+
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-warm-cream mb-6">
+      Ready to Start Your
+      <span class="text-primary-300"> Transformation?</span>
+    </h2>
+    <p class="text-lg text-warm-taupe mb-10 max-w-2xl mx-auto">
+      Take the first step towards the life you deserve. Book a free discovery call and let's explore how coaching can help you achieve your goals.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <CalEmbed eventType="discovery" buttonText="Book Free Consultation" variant="secondary" size="lg" />
+      <Button href="/about" variant="outline" size="lg" class="border-warm-taupe/30 text-warm-cream hover:bg-warm-taupe/10">
+        Learn About My Approach
+      </Button>
+    </div>
+
+    <!-- Reassurance -->
+    <p class="mt-8 text-sm text-warm-taupe/70">
+      No commitment required. Let's just have a conversation.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/common/Button.astro';
+import CTABanner from '../components/home/CTABanner.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Tash, a certified life coach in Sacramento, CA dedicated to helping you unlock your potential and create lasting positive change."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-warm-cream via-primary-50 to-warm-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Image -->
+        <div class="relative">
+          <div class="relative max-w-lg mx-auto">
+            <div class="absolute -inset-4 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-[2rem] transform rotate-2"></div>
+            <div class="relative bg-warm-white rounded-[1.5rem] overflow-hidden shadow-soft">
+              <img
+                src="https://static.wixstatic.com/media/e16bd6_9f89c271f5344d82ad21ad208d7f5938~mv2.jpeg/v1/fill/w_573,h_1120,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e16bd6_9f89c271f5344d82ad21ad208d7f5938~mv2.jpeg"
+                alt="Natasha Yerramilli - Life Coach"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-600 rounded-full text-sm font-medium mb-4">
+            About Me
+          </span>
+          <h1 class="text-4xl sm:text-5xl font-heading font-semibold text-charcoal mb-6">
+            Hi, I'm Natasha
+          </h1>
+          <p class="text-xl text-charcoal/70 leading-relaxed mb-6">
+            Friends call me Tash. I'm a life coach passionate about helping individuals discover their true potential and create lives filled with purpose, joy, and fulfillment.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2 px-4 py-2 bg-warm-white rounded-full shadow-soft">
+              <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              </svg>
+              <span class="text-sm font-medium text-charcoal">Sacramento, CA</span>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2 bg-warm-white rounded-full shadow-soft">
+              <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-sm font-medium text-charcoal">ICF Certified Coach</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Story Section -->
+  <section class="py-20 bg-warm-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-heading font-semibold text-charcoal mb-8 text-center">
+        About Me
+      </h2>
+      <div class="prose prose-lg max-w-none text-charcoal/70">
+        <p class="leading-relaxed mb-6">
+          I am a certified life coach. I am an open minded person and I will create a safe space where we can explore what is holding you back from reaching your full potential. I can help you set goals and achieve them. My guidance can help you be the best version of yourself!
+        </p>
+        <p class="leading-relaxed mb-6">
+          I also have a podcast called <strong>AmericanDesi</strong>, where I talk about my life experiences. You can get to know me better by listening to my stories and insights on personal growth, navigating life's challenges, and finding your authentic self.
+        </p>
+        <p class="leading-relaxed">
+          Whether you're facing a major life transition, seeking more fulfillment, or simply feeling stuck, I'm here to walk alongside you on your journey. Together, we'll unlock your potential and create the life you've always envisioned.
+        </p>
+      </div>
+
+      <!-- Podcast Section -->
+      <div class="mt-12 p-8 bg-primary-50 rounded-softer text-center">
+        <h3 class="text-xl font-heading font-semibold text-charcoal mb-3">Listen to My Podcast</h3>
+        <p class="text-charcoal/70 mb-4">AmericanDesi - Stories and insights on life, growth, and finding your path</p>
+        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+          </svg>
+          Listen Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Approach Section -->
+  <section class="py-20 bg-warm-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-heading font-semibold text-charcoal mb-4">
+          My Coaching Philosophy
+        </h2>
+        <p class="text-lg text-charcoal/70">
+          I believe that everyone has the answers within them. My role is to help you discover them.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-warm-white p-8 rounded-softer shadow-soft text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold text-charcoal mb-3">Empathy First</h3>
+          <p class="text-charcoal/70">
+            I create a safe, judgment-free space where you can be fully yourself and explore your thoughts and feelings openly.
+          </p>
+        </div>
+
+        <div class="bg-warm-white p-8 rounded-softer shadow-soft text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-secondary-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold text-charcoal mb-3">Action-Oriented</h3>
+          <p class="text-charcoal/70">
+            While reflection is important, I focus on helping you take concrete steps toward your goals and create lasting change.
+          </p>
+        </div>
+
+        <div class="bg-warm-white p-8 rounded-softer shadow-soft text-center">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-accent-gold/20 flex items-center justify-center">
+            <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold text-charcoal mb-3">Personalized</h3>
+          <p class="text-charcoal/70">
+            Every coaching relationship is unique. I tailor my approach to your specific needs, goals, and learning style.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Section -->
+  <section class="py-20 bg-warm-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-heading font-semibold text-charcoal mb-12 text-center">
+        Credentials & Training
+      </h2>
+      <div class="space-y-6">
+        <div class="flex items-start gap-4 p-6 bg-warm-cream rounded-soft">
+          <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-charcoal text-lg">ICF Certified Coach</h3>
+            <p class="text-charcoal/70">International Coach Federation - Professional Certified Coach (PCC)</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-6 bg-warm-cream rounded-soft">
+          <div class="w-12 h-12 rounded-full bg-secondary-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-charcoal text-lg">Coach Training</h3>
+            <p class="text-charcoal/70">Completed 200+ hours of ICF-accredited coach training</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-6 bg-warm-cream rounded-soft">
+          <div class="w-12 h-12 rounded-full bg-accent-gold/20 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-charcoal text-lg">Ongoing Education</h3>
+            <p class="text-charcoal/70">Committed to continuous learning and professional development in coaching methodologies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>

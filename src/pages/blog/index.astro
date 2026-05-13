@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredPost = sortedPosts.find(post => post.data.featured);
+const regularPosts = sortedPosts.filter(post => post !== featuredPost);
+
+const categories = [
+  { slug: 'personal-growth', label: 'Personal Growth' },
+  { slug: 'career', label: 'Career' },
+  { slug: 'relationships', label: 'Relationships' },
+  { slug: 'mindfulness', label: 'Mindfulness' },
+  { slug: 'motivation', label: 'Motivation' },
+  { slug: 'life-transitions', label: 'Life Transitions' },
+];
+---
+
+<BaseLayout
+  title="Blog"
+  description="Insights, tips, and inspiration for personal growth, career development, and living your best life. Explore articles from Tash Life Coaching."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-warm-cream via-primary-50 to-secondary-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-600 rounded-full text-sm font-medium mb-4">
+        Blog
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-heading font-semibold text-charcoal mb-6">
+        Insights for Your Journey
+      </h1>
+      <p class="text-xl text-charcoal/70 leading-relaxed">
+        Explore articles on personal growth, career development, relationships, and more. Practical wisdom to help you thrive.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="py-8 bg-warm-white border-b border-warm-taupe/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center gap-3 justify-center">
+        <a
+          href="/blog"
+          class="px-4 py-2 rounded-full text-sm font-medium bg-primary-500 text-warm-white"
+        >
+          All
+        </a>
+        {categories.map((cat) => (
+          <a
+            href={`/blog/category/${cat.slug}`}
+            class="px-4 py-2 rounded-full text-sm font-medium text-charcoal/70 hover:bg-warm-cream transition-colors"
+          >
+            {cat.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="py-16 bg-warm-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {sortedPosts.length === 0 ? (
+        <div class="text-center py-12">
+          <p class="text-charcoal/60 text-lg">No posts yet. Check back soon!</p>
+        </div>
+      ) : (
+        <div class="space-y-12">
+          {/* Featured Post */}
+          {featuredPost && (
+            <div class="mb-12">
+              <h2 class="text-sm font-semibold text-primary-500 uppercase tracking-wider mb-6">Featured Article</h2>
+              <BlogCard post={featuredPost} featured={true} />
+            </div>
+          )}
+
+          {/* Regular Posts Grid */}
+          {regularPosts.length > 0 && (
+            <div>
+              <h2 class="text-sm font-semibold text-charcoal/50 uppercase tracking-wider mb-6">Latest Articles</h2>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {regularPosts.map((post) => (
+                  <BlogCard post={post} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-heading font-semibold text-warm-cream mb-4">
+        Stay Inspired
+      </h2>
+      <p class="text-warm-taupe mb-8">
+        Get weekly insights and tips delivered straight to your inbox.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="flex-grow px-4 py-3 rounded-full bg-warm-white text-charcoal placeholder:text-charcoal/50 focus:ring-2 focus:ring-primary-300 outline-none"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-secondary-300 hover:bg-secondary-400 text-warm-white rounded-full font-medium transition-colors"
+        >
+          Subscribe
+        </button>
+      </form>
+      <p class="text-xs text-warm-taupe/60 mt-4">
+        No spam, ever. Unsubscribe anytime.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/home/CTABanner.astro';
+
+const testimonials = [
+  {
+    quote: "Sessions with Natasha are one of the highlights of my week. She's a pleasure to talk to, and often has simple but excellent suggestions on how to make life a little easier. She listens closely and often quotes me back to myself when we are working through an issue. She will often pick up and follow up on small comments I make to see if there is a nugget of insight there. Knowing that she is going to want to hear about my progress to my personal goals helps motivate me to achieve them.",
+    author: "Debbie V.",
+    location: "California",
+    initials: "DV",
+    rating: 5,
+    highlight: "Weekly Highlight",
+  },
+  {
+    quote: "Natasha is incredibly connected when she's working with you. She has emotional intelligence beyond her years. When I was working with her she always made me feel comfortable and safe so that I could explore many different avenues. She's also kind and warm and funny and we laughed a lot during our sessions. I highly recommend working with Natasha if you need to work through something - she will surely get you there and do it with a smile.",
+    author: "Randi C.",
+    location: "California",
+    initials: "RC",
+    rating: 5,
+    highlight: "Emotional Intelligence",
+  },
+  {
+    quote: "Natasha knows exactly which questions to ask. She can synthesize our conversations and turn my busy thoughts into concrete suggestions and she can always steer the session into a positive direction. Coaching sessions with Natasha help me understand aspects of my life in more depth, so that my life can continue on a productive and fulfilling route.",
+    author: "Iris T.",
+    location: "Vienna",
+    initials: "IT",
+    rating: 5,
+    highlight: "Clarity & Direction",
+  },
+];
+---
+
+<BaseLayout
+  title="Testimonials"
+  description="Read success stories from clients who transformed their lives through coaching with Tash. Real results from real people."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-warm-cream via-secondary-50 to-primary-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block px-4 py-1.5 bg-secondary-100 text-secondary-600 rounded-full text-sm font-medium mb-4">
+        Success Stories
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-heading font-semibold text-charcoal mb-6">
+        Real Transformations, Real People
+      </h1>
+      <p class="text-xl text-charcoal/70 leading-relaxed">
+        Don't just take my word for it. Hear from clients who have walked this path and created lasting positive change in their lives.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonials Grid -->
+  <section class="py-20 bg-warm-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testimonials.map((testimonial, index) => (
+          <div
+            class="relative bg-warm-cream p-8 rounded-softer shadow-soft hover:shadow-warm transition-shadow"
+          >
+            <!-- Highlight Badge -->
+            <div class="absolute -top-3 left-8">
+              <span class="inline-block px-3 py-1 bg-secondary-300 text-warm-white text-xs font-semibold rounded-full">
+                {testimonial.highlight}
+              </span>
+            </div>
+
+            <!-- Rating -->
+            <div class="flex gap-1 mb-4 mt-2">
+              {[...Array(testimonial.rating)].map(() => (
+                <svg class="w-5 h-5 text-accent-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+
+            <!-- Quote -->
+            <blockquote class="text-charcoal/80 leading-relaxed mb-6 text-sm">
+              "{testimonial.quote}"
+            </blockquote>
+
+            <!-- Author -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-200 to-secondary-200 flex items-center justify-center">
+                <span class="text-primary-600 font-semibold text-lg">
+                  {testimonial.initials}
+                </span>
+              </div>
+              <div>
+                <p class="font-semibold text-charcoal">{testimonial.author}</p>
+                <p class="text-xs text-charcoal/60">{testimonial.location}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-primary-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-heading font-bold text-warm-white mb-2">100+</p>
+          <p class="text-primary-100 text-sm">Lives Transformed</p>
+        </div>
+        <div>
+          <p class="text-4xl font-heading font-bold text-warm-white mb-2">500+</p>
+          <p class="text-primary-100 text-sm">Coaching Sessions</p>
+        </div>
+        <div>
+          <p class="text-4xl font-heading font-bold text-warm-white mb-2">5+</p>
+          <p class="text-primary-100 text-sm">Years Experience</p>
+        </div>
+        <div>
+          <p class="text-4xl font-heading font-bold text-warm-white mb-2">98%</p>
+          <p class="text-primary-100 text-sm">Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Testimonial Placeholder -->
+  <section class="py-20 bg-warm-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-heading font-semibold text-charcoal mb-8">
+        Hear Their Stories
+      </h2>
+      <div class="aspect-video bg-warm-white rounded-softer shadow-soft flex items-center justify-center">
+        <div class="text-center p-8">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-secondary-100 flex items-center justify-center">
+            <svg class="w-10 h-10 text-secondary-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <p class="text-charcoal/60">Video testimonials coming soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>

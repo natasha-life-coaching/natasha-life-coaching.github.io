@@ -1,0 +1,315 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/common/Button.astro';
+import CalEmbed from '../components/common/CalEmbed.astro';
+import CTABanner from '../components/home/CTABanner.astro';
+
+const services = [
+  {
+    id: 'life-clarity',
+    title: 'Life Clarity Coaching',
+    tagline: 'Find your direction and purpose',
+    description: 'Feeling lost or uncertain about your path? Life Clarity Coaching helps you gain a clear vision of what you truly want and creates a roadmap to get there.',
+    benefits: [
+      'Identify your core values and priorities',
+      'Create a compelling vision for your future',
+      'Develop actionable goals and milestones',
+      'Build confidence in your decisions',
+      'Overcome analysis paralysis and take action',
+    ],
+    ideal: 'People feeling stuck, facing major life decisions, or seeking more purpose and meaning.',
+    icon: 'compass',
+    color: 'primary',
+  },
+  {
+    id: 'career',
+    title: 'Career Transformation',
+    tagline: 'Align your work with your purpose',
+    description: 'Whether you\'re seeking a promotion, considering a career change, or feeling unfulfilled at work, Career Transformation coaching helps you build a professional life that energizes you.',
+    benefits: [
+      'Clarify your ideal career path',
+      'Navigate job transitions with confidence',
+      'Develop leadership and communication skills',
+      'Build a personal brand that stands out',
+      'Achieve work-life balance',
+    ],
+    ideal: 'Professionals seeking career growth, those considering a career pivot, or anyone wanting more fulfillment from their work.',
+    icon: 'briefcase',
+    color: 'secondary',
+  },
+  {
+    id: 'relationships',
+    title: 'Relationship Wellness',
+    tagline: 'Build deeper, healthier connections',
+    description: 'Strong relationships are foundational to a fulfilling life. This coaching focuses on improving how you connect, communicate, and maintain healthy boundaries with others.',
+    benefits: [
+      'Improve communication skills',
+      'Set and maintain healthy boundaries',
+      'Navigate conflict constructively',
+      'Deepen intimacy and connection',
+      'Build self-awareness in relationships',
+    ],
+    ideal: 'Individuals looking to improve personal relationships, set better boundaries, or develop stronger interpersonal skills.',
+    icon: 'heart',
+    color: 'accent',
+  },
+  {
+    id: 'personal-growth',
+    title: 'Personal Growth & Mindset',
+    tagline: 'Unlock your full potential',
+    description: 'Transform limiting beliefs into empowering ones. Personal Growth coaching helps you develop the mindset, habits, and resilience needed to become your best self.',
+    benefits: [
+      'Overcome limiting beliefs and self-doubt',
+      'Build resilience and emotional intelligence',
+      'Develop powerful daily habits',
+      'Increase self-awareness and authenticity',
+      'Create lasting positive change',
+    ],
+    ideal: 'Anyone ready to break through personal barriers and unlock their full potential.',
+    icon: 'sun',
+    color: 'primary',
+  },
+];
+
+const packages = [
+  {
+    name: 'Discovery Call',
+    price: 'Free',
+    duration: '1 hour',
+    description: 'Get to know each other and explore how coaching can help you.',
+    features: [
+      'One-on-one conversation',
+      'Discuss your goals and challenges',
+      'Learn about my coaching approach',
+      'No commitment required',
+    ],
+    cta: 'Book Free Call',
+    popular: false,
+    calEventType: 'discovery' as const,
+  },
+  {
+    name: 'Online Coaching',
+    price: '$70',
+    duration: '1 hour session',
+    description: 'One-on-one session with Coach and Client. 10 sessions recommended for best results.',
+    features: [
+      '60-minute coaching session',
+      'Personalized guidance',
+      'Action-oriented approach',
+      'Virtual sessions available',
+      'Flexible scheduling',
+    ],
+    cta: 'Book Session',
+    popular: true,
+    calEventType: 'coaching' as const,
+  },
+  {
+    name: 'Returning Client',
+    price: '$60',
+    duration: '1 hour session',
+    description: 'Special rate for past clients returning for continued support.',
+    features: [
+      '60-minute coaching session',
+      'Discounted rate for returning clients',
+      'Continued progress on your journey',
+      'Flexible scheduling',
+      'Virtual sessions available',
+    ],
+    cta: 'Book Session',
+    popular: false,
+    calEventType: 'returning' as const,
+  },
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="Explore life coaching services tailored to your needs. From career transformation to personal growth, find the support you need to thrive."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-warm-cream via-primary-50 to-secondary-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-600 rounded-full text-sm font-medium mb-4">
+        Coaching Services
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-heading font-semibold text-charcoal mb-6">
+        Services Designed for Your Journey
+      </h1>
+      <p class="text-xl text-charcoal/70 leading-relaxed">
+        Every transformation is unique. Explore my coaching offerings and find the support that resonates with where you are and where you want to be.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-warm-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        {services.map((service, index) => (
+          <div
+            id={service.id}
+            class={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
+          >
+            <!-- Content -->
+            <div class={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+              <div class={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-4 ${
+                service.color === 'primary' ? 'bg-primary-100 text-primary-600' :
+                service.color === 'secondary' ? 'bg-secondary-100 text-secondary-600' :
+                'bg-accent-gold/20 text-accent-gold'
+              }`}>
+                {service.icon === 'compass' && (
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                  </svg>
+                )}
+                {service.icon === 'briefcase' && (
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                )}
+                {service.icon === 'heart' && (
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                  </svg>
+                )}
+                {service.icon === 'sun' && (
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                  </svg>
+                )}
+                {service.tagline}
+              </div>
+              <h2 class="text-3xl font-heading font-semibold text-charcoal mb-4">
+                {service.title}
+              </h2>
+              <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+                {service.description}
+              </p>
+
+              <h3 class="font-semibold text-charcoal mb-3">What You'll Gain:</h3>
+              <ul class="space-y-2 mb-6">
+                {service.benefits.map((benefit) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span class="text-charcoal/70">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p class="text-sm text-charcoal/60 italic mb-6">
+                <strong>Ideal for:</strong> {service.ideal}
+              </p>
+
+              <Button href="/contact" variant={service.color === 'primary' ? 'primary' : 'secondary'}>
+                Learn More
+              </Button>
+            </div>
+
+            <!-- Visual -->
+            <div class={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+              <div class={`aspect-square max-w-md mx-auto rounded-softer overflow-hidden shadow-soft ${
+                service.color === 'primary' ? 'bg-gradient-to-br from-primary-100 to-primary-200' :
+                service.color === 'secondary' ? 'bg-gradient-to-br from-secondary-100 to-secondary-200' :
+                'bg-gradient-to-br from-accent-gold/20 to-accent-gold/40'
+              }`}>
+                <div class="w-full h-full flex items-center justify-center">
+                  <div class={`w-24 h-24 rounded-full flex items-center justify-center ${
+                    service.color === 'primary' ? 'bg-primary-300 text-warm-white' :
+                    service.color === 'secondary' ? 'bg-secondary-300 text-warm-white' :
+                    'bg-accent-gold text-warm-white'
+                  }`}>
+                    {service.icon === 'compass' && (
+                      <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                      </svg>
+                    )}
+                    {service.icon === 'briefcase' && (
+                      <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                    )}
+                    {service.icon === 'heart' && (
+                      <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                      </svg>
+                    )}
+                    {service.icon === 'sun' && (
+                      <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                      </svg>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-20 bg-warm-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 bg-secondary-100 text-secondary-600 rounded-full text-sm font-medium mb-4">
+          Investment
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-semibold text-charcoal mb-4">
+          Coaching Packages
+        </h2>
+        <p class="text-lg text-charcoal/70">
+          Choose the level of support that fits your needs and goals.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {packages.map((pkg) => (
+          <div class={`relative bg-warm-white rounded-softer shadow-soft overflow-hidden ${pkg.popular ? 'ring-2 ring-secondary-300' : ''}`}>
+            {pkg.popular && (
+              <div class="absolute top-0 right-0 bg-secondary-300 text-warm-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
+                Most Popular
+              </div>
+            )}
+            <div class="p-8">
+              <h3 class="text-xl font-heading font-semibold text-charcoal mb-2">{pkg.name}</h3>
+              <p class="text-sm text-charcoal/60 mb-4">{pkg.duration}</p>
+              <div class="mb-4">
+                <span class="text-4xl font-heading font-bold text-charcoal">{pkg.price}</span>
+              </div>
+              <p class="text-charcoal/70 text-sm mb-6">{pkg.description}</p>
+
+              <ul class="space-y-3 mb-8">
+                {pkg.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm">
+                    <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span class="text-charcoal/70">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="w-full">
+                <CalEmbed
+                  eventType={pkg.calEventType}
+                  buttonText={pkg.cta}
+                  variant={pkg.popular ? 'secondary' : 'outline'}
+                  size="md"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center mt-8 text-charcoal/60">
+        Not sure which package is right for you? <a href="/book" class="text-primary-500 hover:text-primary-600 font-medium">Book a free discovery call</a> and we'll find the perfect fit together.
+      </p>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>

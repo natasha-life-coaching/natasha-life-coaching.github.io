@@ -1,0 +1,44 @@
+---
+import { calLink, type EventKey } from '../../data/booking';
+
+interface Props {
+  eventType: EventKey;
+  buttonText?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  eventType,
+  buttonText = 'Book Now',
+  variant = 'secondary',
+  size = 'md'
+} = Astro.props;
+
+const variantClasses = {
+  primary: 'bg-primary-500 hover:bg-primary-600 text-white focus:ring-primary-500',
+  secondary: 'bg-secondary-400 hover:bg-secondary-500 text-white focus:ring-secondary-400 shadow-warm',
+  outline: 'border-2 border-primary-500 text-primary-500 hover:bg-primary-50 focus:ring-primary-500'
+};
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-3.5 text-lg'
+};
+---
+
+<button
+  data-cal-link={calLink(eventType)}
+  data-cal-config='{"layout":"month_view"}'
+  class:list={[
+    'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2',
+    variantClasses[variant],
+    sizeClasses[size]
+  ]}
+>
+  {buttonText}
+  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+  </svg>
+</button>

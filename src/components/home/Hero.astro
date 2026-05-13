@@ -1,0 +1,91 @@
+---
+import Button from '../common/Button.astro';
+import { Image } from 'astro:assets';
+import logo from '../../assets/logo.jpg';
+---
+
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <!-- Background Gradient - more transparent to show beach -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-100/70 via-white/60 to-secondary-100/70 backdrop-blur-[2px]"></div>
+
+  <!-- Decorative Elements -->
+  <div class="absolute top-20 right-10 w-72 h-72 bg-primary-200 rounded-full blur-3xl opacity-30"></div>
+  <div class="absolute bottom-20 left-10 w-96 h-96 bg-secondary-200 rounded-full blur-3xl opacity-20"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="text-center lg:text-left animate-fade-in-up">
+        <!-- Logo -->
+        <div class="mb-10 flex justify-center lg:justify-start">
+          <Image
+            src={logo}
+            alt="Tash Life Coaching"
+            class="h-36 sm:h-48 w-auto rounded-2xl shadow-warm hover:shadow-soft transition-shadow"
+            width={320}
+            height={192}
+          />
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold text-charcoal leading-tight mb-6">
+          Unlock Your
+          <span class="text-gradient"> True Potential</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-charcoal/70 leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
+          "Coaching is unlocking a person's potential to maximize their own performance. It is helping them to learn rather than to teach them."
+        </p>
+        <p class="text-sm text-charcoal/50 mb-8 max-w-xl mx-auto lg:mx-0 italic">
+          — Tim Galloway
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <Button href="/contact" variant="secondary" size="lg">
+            Start Your Journey
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </Button>
+          <Button href="/services" variant="outline" size="lg">
+            Explore Services
+          </Button>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-8 text-sm text-charcoal/60">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>100+ Lives Transformed</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Certified Coach</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Free Consultation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Image -->
+      <div class="hidden lg:block relative">
+        <div class="relative w-full max-w-md mx-auto">
+          <!-- Decorative frame -->
+          <div class="absolute -inset-3 bg-gradient-to-br from-primary-300 to-secondary-300 rounded-[2rem] transform rotate-3"></div>
+          <div class="relative bg-warm-white rounded-[1.75rem] overflow-hidden shadow-soft">
+            <img
+              src="https://static.wixstatic.com/media/e16bd6_9f89c271f5344d82ad21ad208d7f5938~mv2.jpeg/v1/fill/w_573,h_1120,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e16bd6_9f89c271f5344d82ad21ad208d7f5938~mv2.jpeg"
+              alt="Natasha Yerramilli - Life Coach"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,100 @@
+---
+interface Props {
+  post: {
+    id: string;
+    data: {
+      title: string;
+      description: string;
+      pubDate: Date;
+      heroImage?: string;
+      category: string;
+      tags: string[];
+      featured?: boolean;
+    };
+  };
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const { title, description, pubDate, heroImage, category, tags } = post.data;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+const categoryLabels: Record<string, string> = {
+  'personal-growth': 'Personal Growth',
+  'career': 'Career',
+  'relationships': 'Relationships',
+  'mindfulness': 'Mindfulness',
+  'motivation': 'Motivation',
+  'life-transitions': 'Life Transitions',
+};
+
+const categoryColors: Record<string, string> = {
+  'personal-growth': 'bg-primary-100 text-primary-600',
+  'career': 'bg-secondary-100 text-secondary-600',
+  'relationships': 'bg-accent-gold/20 text-accent-gold',
+  'mindfulness': 'bg-primary-100 text-primary-600',
+  'motivation': 'bg-secondary-100 text-secondary-600',
+  'life-transitions': 'bg-primary-100 text-primary-600',
+};
+---
+
+<article class={`group bg-warm-white rounded-softer shadow-soft overflow-hidden hover:shadow-warm transition-shadow ${featured ? 'lg:flex' : ''}`}>
+  <!-- Image -->
+  <div class={`${featured ? 'lg:w-1/2' : ''}`}>
+    <a href={`/blog/${post.id}`} class="block aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary-100 to-secondary-100">
+      {heroImage ? (
+        <img
+          src={heroImage}
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      ) : (
+        <div class="w-full h-full flex items-center justify-center">
+          <svg class="w-16 h-16 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+          </svg>
+        </div>
+      )}
+    </a>
+  </div>
+
+  <!-- Content -->
+  <div class={`p-6 ${featured ? 'lg:w-1/2 lg:p-8 lg:flex lg:flex-col lg:justify-center' : ''}`}>
+    <div class="flex items-center gap-3 mb-3">
+      <a
+        href={`/blog/category/${category}`}
+        class={`px-3 py-1 rounded-full text-xs font-medium ${categoryColors[category] || 'bg-primary-100 text-primary-600'}`}
+      >
+        {categoryLabels[category] || category}
+      </a>
+      <time datetime={pubDate.toISOString()} class="text-xs text-charcoal/50">
+        {formattedDate}
+      </time>
+    </div>
+
+    <h3 class={`font-heading font-semibold text-charcoal group-hover:text-primary-500 transition-colors mb-2 ${featured ? 'text-2xl' : 'text-xl'}`}>
+      <a href={`/blog/${post.id}`}>
+        {title}
+      </a>
+    </h3>
+
+    <p class={`text-charcoal/70 leading-relaxed mb-4 ${featured ? 'text-base' : 'text-sm line-clamp-2'}`}>
+      {description}
+    </p>
+
+    <a
+      href={`/blog/${post.id}`}
+      class="inline-flex items-center gap-1 text-primary-500 hover:text-primary-600 font-medium text-sm transition-colors"
+    >
+      Read More
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+  </div>
+</article>
