@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# one-time wix migration tool (kept local only)
+wix-scraper/
