@@ -32,7 +32,7 @@ import CalEmbed from '../components/common/CalEmbed.astro';
           <h2 class="text-2xl font-heading font-semibold text-charcoal mb-6">
             Send a Message
           </h2>
-          <form class="space-y-6" action="#" method="POST">
+          <form id="contact-form" class="space-y-6">
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
                 <label for="firstName" class="block text-sm font-medium text-charcoal mb-2">
@@ -129,6 +129,31 @@ import CalEmbed from '../components/common/CalEmbed.astro';
               </svg>
             </Button>
           </form>
+          <script is:inline>
+            document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+              e.preventDefault();
+              const f = e.target;
+              const get = (n) => (f.elements[n]?.value || '').trim();
+              const firstName = get('firstName');
+              const lastName  = get('lastName');
+              const email     = get('email');
+              const phone     = get('phone');
+              const interest  = get('interest');
+              const message   = get('message');
+              const subject = `Coaching inquiry from ${firstName} ${lastName}`.trim();
+              const body = [
+                `Name: ${firstName} ${lastName}`,
+                `Email: ${email}`,
+                phone    ? `Phone: ${phone}` : null,
+                interest ? `Interested in: ${interest}` : null,
+                '',
+                'Message:',
+                message,
+              ].filter(Boolean).join('\n');
+              const url = `mailto:nylifecoach4u@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              window.location.href = url;
+            });
+          </script>
         </div>
 
         <!-- Contact Info -->
