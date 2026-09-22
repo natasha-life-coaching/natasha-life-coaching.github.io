@@ -35,6 +35,10 @@
   /* Accent */
   --color-accent-gold: #38bdf8;
 
+  /* Podcast — the Spotify button shape, in purple rather than Spotify green */
+  --color-podcast-500: #7c3aed;
+  --color-podcast-600: #6d28d9;
+
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;

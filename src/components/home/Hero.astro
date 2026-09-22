@@ -72,9 +72,10 @@ import logo from '../../assets/logo.jpg';
         </div>
       </div>
 
-      <!-- Profile Image -->
-      <div class="hidden lg:block relative">
-        <div class="relative w-full max-w-md mx-auto">
+      <!-- Profile Image — shown on every size; first on mobile so her face is
+           above the fold, back to the right-hand column from lg up -->
+      <div class="relative order-first lg:order-none">
+        <div class="relative w-64 sm:w-80 lg:w-full max-w-md mx-auto">
           <!-- Decorative frame -->
           <div class="absolute -inset-3 bg-gradient-to-br from-primary-300 to-secondary-300 rounded-[2rem] transform rotate-3"></div>
           <div class="relative bg-warm-white rounded-[1.75rem] overflow-hidden shadow-soft">
@@ -82,6 +83,8 @@ import logo from '../../assets/logo.jpg';
               src="https://static.wixstatic.com/media/e16bd6_9f89c271f5344d82ad21ad208d7f5938~mv2.jpeg/v1/fill/w_573,h_1120,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e16bd6_9f89c271f5344d82ad21ad208d7f5938~mv2.jpeg"
               alt="Natasha Yerramilli - Life Coach"
               class="w-full h-auto object-cover"
+              loading="eager"
+              fetchpriority="high"
             />
           </div>
         </div>
